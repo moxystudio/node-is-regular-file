@@ -1,0 +1,40 @@
+{
+  "name": "is-regular-file",
+  "version": "0.1.0",
+  "description": "Checks if a given path is a regular file",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint '{*.js,lib/**/*.js,reporters/**/*.js,test/**/*.js}' --ignore-pattern=test/coverage",
+    "test": "mocha --bail",
+    "test-cov": "istanbul cover --dir test/coverage _mocha -- --bail && echo Coverage lies in test/coverage/lcov-report/index.html",
+    "test-travis": "istanbul cover _mocha --report lcovonly -- --bail && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+  },
+  "bugs": {
+    "url": "https://github.com/IndigoUnited/node-is-regular-file/issues/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/IndigoUnited/node-is-regular-file.git"
+  },
+  "keywords": [
+    "file",
+    "regular",
+    "path"
+  ],
+  "author": "IndigoUnited <hello@indigounited.com> (http://indigounited.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "@satazor/eslint-config": "^2.3.0",
+    "betray": "^1.3.0",
+    "chai": "^3.5.0",
+    "coveralls": "^2.11.9",
+    "eslint": "^2.9.0",
+    "istanbul": "^0.4.3",
+    "mkdirp": "^0.5.1",
+    "mocha": "^2.4.5",
+    "rimraf": "^2.5.2"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  }
+}
