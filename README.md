@@ -24,8 +24,6 @@ Checks if a path is a regular file.
 
 ## Usage
 
-**isRegularFile(path, [options])**
-
 ```js
 const isRegularFile = require('is-regular-file');
 
@@ -33,10 +31,6 @@ isRegularFile('path-to-file')
 .then((result) => console.log('result', result))  // `result` will either be false or a `stats` object
 .catch((err) => console.log('error', err));
 ```
-
-Available options:
-
-- followSymlinks: `true` to follow symlinks, false otherwise (defaults to `true`)
 
 
 ## Tests
