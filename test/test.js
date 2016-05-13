@@ -18,10 +18,7 @@ describe('is-regular-file', () => {
         fs.writeFileSync(`${tmpDir}/some-file`, 'zzzz');
 
         return isRegularFile(`${tmpDir}/some-file`)
-        .then((result) => {
-            expect(result).to.be.an('object');
-            expect(result.size).to.be.a('number');
-        });
+        .then((result) => expect(result).to.equal(true));
     });
 
     it('should return false for directories', () => {

@@ -13,7 +13,7 @@ function isRegularFile(path) {
                 return reject(err);
             }
 
-            resolve(stat.isFile() ? stat : false);
+            resolve(stat.isFile());
         });
     });
 }

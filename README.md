@@ -28,7 +28,7 @@ Checks if a path is a regular file.
 const isRegularFile = require('is-regular-file');
 
 isRegularFile('path-to-file')
-.then((result) => console.log('result', result))  // `result` will either be false or a `stats` object
+.then((is) => console.log('result', is))
 .catch((err) => console.log('error', err));
 ```
 
