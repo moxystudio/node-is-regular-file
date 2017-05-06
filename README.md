@@ -11,7 +11,7 @@
 [coveralls-image]:https://img.shields.io/coveralls/IndigoUnited/node-is-regular-file/master.svg
 [david-dm-url]:https://david-dm.org/IndigoUnited/node-is-regular-file
 [david-dm-image]:https://img.shields.io/david/IndigoUnited/node-is-regular-file.svg
-[david-dm-dev-url]:https://david-dm.org/IndigoUnited/node-is-regular-file#info=devDependencies
+[david-dm-dev-url]:https://david-dm.org/IndigoUnited/node-is-regular-file?type=dev
 [david-dm-dev-image]:https://img.shields.io/david/dev/IndigoUnited/node-is-regular-file.svg
 
 Checks if a path is a regular file.
