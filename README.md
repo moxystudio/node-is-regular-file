@@ -30,10 +30,18 @@ Checks if a path is a regular file.
 const isRegularFile = require('is-regular-file');
 
 isRegularFile('path-to-file')
-.then((is) => console.log('result', is))
-.catch((err) => console.log('error', err));
+.then((is) => console.log('result', is));
 ```
 
+or if you prefer sync:
+
+```js
+const isRegularFileSync = require('is-regular-file').sync;
+
+const is = isRegularFileSync('path-to-file')
+
+console.log('result', is);
+```
 
 ## Tests
 
