@@ -1,40 +1,53 @@
 {
   "name": "is-regular-file",
-  "version": "1.1.0",
   "description": "Checks if a given path is a regular file",
-  "main": "index.js",
-  "scripts": {
-    "lint": "eslint '{*.js,test/**/*.js}' --ignore-pattern=test/coverage",
-    "test": "mocha --bail",
-    "test-cov": "istanbul cover --dir test/coverage _mocha -- --bail && echo Coverage lies in test/coverage/lcov-report/index.html",
-    "test-travis": "istanbul cover _mocha --report lcovonly -- --bail && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
-  },
-  "bugs": {
-    "url": "https://github.com/IndigoUnited/node-is-regular-file/issues/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/IndigoUnited/node-is-regular-file.git"
-  },
+  "version": "1.1.0",
   "keywords": [
     "file",
     "regular",
     "path"
   ],
-  "author": "IndigoUnited <hello@indigounited.com> (http://indigounited.com)",
-  "license": "MIT",
-  "devDependencies": {
-    "@satazor/eslint-config": "^3.0.0",
-    "betray": "^1.3.0",
-    "chai": "^4.0.2",
-    "coveralls": "^2.11.9",
-    "eslint": "^3.0.0",
-    "istanbul": "^0.4.3",
-    "mkdirp": "^0.5.1",
-    "mocha": "^3.2.0",
-    "rimraf": "^2.5.2"
+  "author": "André Cruz <andre@moxy.studio>",
+  "homepage": "https://github.com/moxystudio/node-is-regular-file",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:moxystudio/node-is-regular-file.git"
   },
-  "engines": {
-    "node": ">=4.0.0"
+  "license": "MIT",
+  "main": "index.js",
+  "files": [],
+  "scripts": {
+    "lint": "eslint .",
+    "test": "jest --env node --coverage",
+    "prerelease": "npm t && npm run lint && npm run build",
+    "release": "standard-version",
+    "precommit": "lint-staged",
+    "commitmsg": "commitlint -e $GIT_PARAMS"
+  },
+  "standard-version": {
+    "scripts": {
+      "posttag": "git push --follow-tags origin master && npm publish"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^6.0.0",
+    "@commitlint/config-conventional": "^6.0.2",
+    "eslint": "^4.3.0",
+    "eslint-config-moxy": "^4.1.0",
+    "husky": "^0.14.3",
+    "jest": "^22.0.0",
+    "lint-staged": "^6.0.0",
+    "standard-version": "^4.2.0"
   }
 }

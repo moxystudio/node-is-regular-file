@@ -5,15 +5,15 @@
 [npm-url]:https://npmjs.org/package/is-regular-file
 [downloads-image]:http://img.shields.io/npm/dm/is-regular-file.svg
 [npm-image]:http://img.shields.io/npm/v/is-regular-file.svg
-[travis-url]:https://travis-ci.org/IndigoUnited/node-is-regular-file
-[travis-image]:http://img.shields.io/travis/IndigoUnited/node-is-regular-file/master.svg
-[coveralls-url]:https://coveralls.io/r/IndigoUnited/node-is-regular-file
-[coveralls-image]:https://img.shields.io/coveralls/IndigoUnited/node-is-regular-file/master.svg
-[david-dm-url]:https://david-dm.org/IndigoUnited/node-is-regular-file
-[david-dm-image]:https://img.shields.io/david/IndigoUnited/node-is-regular-file.svg
-[david-dm-dev-url]:https://david-dm.org/IndigoUnited/node-is-regular-file?type=dev
-[david-dm-dev-image]:https://img.shields.io/david/dev/IndigoUnited/node-is-regular-file.svg
-[greenkeeper-image]:https://badges.greenkeeper.io/IndigoUnited/node-is-regular-file.svg
+[travis-url]:https://travis-ci.org/moxystudio/node-is-regular-file
+[travis-image]:http://img.shields.io/travis/moxystudio/node-is-regular-file/master.svg
+[coveralls-url]:https://coveralls.io/r/moxystudio/node-is-regular-file
+[coveralls-image]:https://img.shields.io/coveralls/moxystudio/node-is-regular-file/master.svg
+[david-dm-url]:https://david-dm.org/moxystudio/node-is-regular-file
+[david-dm-image]:https://img.shields.io/david/moxystudio/node-is-regular-file.svg
+[david-dm-dev-url]:https://david-dm.org/moxystudio/node-is-regular-file?type=dev
+[david-dm-dev-image]:https://img.shields.io/david/dev/moxystudio/node-is-regular-file.svg
+[greenkeeper-image]:https://badges.greenkeeper.io/moxystudio/node-is-regular-file.svg
 [greenkeeper-url]:https://greenkeeper.io/
 
 Checks if a path is a regular file.
@@ -29,8 +29,8 @@ Checks if a path is a regular file.
 ```js
 const isRegularFile = require('is-regular-file');
 
-isRegularFile('path-to-file')
-.then((is) => console.log('result', is));
+isRegularFile('path/to/file')
+.then((is) => console.log('Is regular file:', is));
 ```
 
 or if you prefer sync:
@@ -38,9 +38,7 @@ or if you prefer sync:
 ```js
 const isRegularFileSync = require('is-regular-file').sync;
 
-const is = isRegularFileSync('path-to-file')
-
-console.log('result', is);
+console.log('Is regular file:', isRegularFileSync('path/to/file'));
 ```
 
 ## Tests

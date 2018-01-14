@@ -1,8 +1,6 @@
 'use strict';
 
 const fs = require('fs');
-const expect = require('chai').expect;
-const betray = require('betray');
 const mkdirp = require('mkdirp');
 const rimraf = require('rimraf');
 const isRegularFile = require('../');
@@ -10,79 +8,78 @@ const isRegularFileSync = isRegularFile.sync;
 
 const tmpDir = `${__dirname}/tmp`;
 
+afterEach(() => jest.restoreAllMocks());
+
 describe('is-regular-file async', () => {
-    before(() => rimraf.sync(tmpDir));
+    beforeAll(() => rimraf.sync(tmpDir));
     beforeEach(() => mkdirp.sync(tmpDir));
     afterEach(() => rimraf.sync(tmpDir));
 
-    it('should return the true for regular files', () => {
+    it('should return the true for regular files', async () => {
         fs.writeFileSync(`${tmpDir}/some-file`, 'zzzz');
 
-        return isRegularFile(`${tmpDir}/some-file`)
-        .then((result) => expect(result).to.equal(true));
+        const result = await isRegularFile(`${tmpDir}/some-file`);
+
+        expect(result).toBe(true);
     });
 
-    it('should return false for directories', () => {
+    it('should return false for directories', async () => {
         fs.mkdirSync(`${tmpDir}/dir`);
 
-        return isRegularFile(`${tmpDir}/dir`)
-        .then((result) => expect(result).to.equal(false));
+        const result = await isRegularFile(`${tmpDir}/dir`);
+
+        expect(result).toBe(false);
     });
 
-    it('should return false if it doesn\'t exist', () => {
-        return isRegularFile(`${tmpDir}/foo`)
-        .then((result) => expect(result).to.equal(false));
+    it('should return false if it doesn\'t exist', async () => {
+        const result = await isRegularFile(`${tmpDir}/foo`);
+
+        expect(result).toBe(false);
     });
 
-    it('should throw an error if code is different than ENOENT', () => {
-        fs.writeFileSync(`${tmpDir}/error-file`, 'zzzz');
+    it('should throw an error if code is different than ENOENT', async () => {
+        jest.spyOn(fs, 'stat').mockImplementation((path, callback) => callback(new Error('foo')));
 
-        const betrayed = betray(fs, 'stat', (path, callback) => { callback(new Error('foo')); });
+        expect.assertions(1);
 
-        return isRegularFile(`${tmpDir}/error-file`)
-        .then(() => {
-            betrayed.restore();
-            throw new Error('Should have failed');
-        }, (err) => {
-            betrayed.restore();
-            expect(err.message).to.equal('foo');
-        });
+        try {
+            await isRegularFile(`${tmpDir}/error-file`);
+        } catch (err) {
+            expect(err.message).toBe('foo');
+        }
     });
 });
 
 describe('is-regular-file sync', () => {
-    before(() => rimraf.sync(tmpDir));
+    beforeAll(() => rimraf.sync(tmpDir));
     beforeEach(() => mkdirp.sync(tmpDir));
     afterEach(() => rimraf.sync(tmpDir));
 
     it('should return the true for regular files', () => {
         fs.writeFileSync(`${tmpDir}/some-file`, 'zzzz');
 
-        expect(isRegularFileSync(`${tmpDir}/some-file`)).to.equal(true);
+        expect(isRegularFileSync(`${tmpDir}/some-file`)).toBe(true);
     });
 
     it('should return false for directories', () => {
         fs.mkdirSync(`${tmpDir}/dir`);
 
-        expect(isRegularFileSync(`${tmpDir}/dir`)).to.equal(false);
+        expect(isRegularFileSync(`${tmpDir}/dir`)).toBe(false);
     });
 
     it('should return false if it doesn\'t exist', () => {
-        expect(isRegularFileSync(`${tmpDir}/foo`)).to.equal(false);
+        expect(isRegularFileSync(`${tmpDir}/foo`)).toBe(false);
     });
 
     it('should throw an error if code is different than ENOENT', () => {
-        fs.writeFileSync(`${tmpDir}/error-file`, 'zzzz');
+        jest.spyOn(fs, 'statSync').mockImplementation(() => { throw new Error('foo'); });
 
-        const betrayed = betray(fs, 'statSync', () => { throw new Error('foo'); });
+        expect.assertions(1);
 
         try {
             isRegularFileSync(`${tmpDir}/error-file`);
-            throw new Error('Should have failed');
         } catch (err) {
-            expect(err.message).to.equal('foo');
-        } finally {
-            betrayed.restore();
+            expect(err.message).toBe('foo');
         }
     });
 });

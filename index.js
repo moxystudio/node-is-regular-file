@@ -32,6 +32,5 @@ function isRegularFileSync(path) {
     }
 }
 
-
 module.exports = isRegularFile;
 module.exports.sync = isRegularFileSync;
