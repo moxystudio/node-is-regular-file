@@ -1,14 +1,14 @@
 # is-regular-file
 
-[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependency status][david-dm-image]][david-dm-url] [![Dev Dependency status][david-dm-dev-image]][david-dm-dev-url] [![Greenkeeper badge][greenkeeper-image]][greenkeeper-url]
+[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][codecov-image]][codecov-url] [![Dependency status][david-dm-image]][david-dm-url] [![Dev Dependency status][david-dm-dev-image]][david-dm-dev-url] [![Greenkeeper badge][greenkeeper-image]][greenkeeper-url]
 
 [npm-url]:https://npmjs.org/package/is-regular-file
 [downloads-image]:http://img.shields.io/npm/dm/is-regular-file.svg
 [npm-image]:http://img.shields.io/npm/v/is-regular-file.svg
 [travis-url]:https://travis-ci.org/moxystudio/node-is-regular-file
 [travis-image]:http://img.shields.io/travis/moxystudio/node-is-regular-file/master.svg
-[coveralls-url]:https://coveralls.io/r/moxystudio/node-is-regular-file
-[coveralls-image]:https://img.shields.io/coveralls/moxystudio/node-is-regular-file/master.svg
+[codecov-url]:https://codecov.io/gh/moxystudio/node-is-regular-file
+[codecov-image]:https://img.shields.io/codecov/c/github/moxystudio/node-is-regular-file/master.svg
 [david-dm-url]:https://david-dm.org/moxystudio/node-is-regular-file
 [david-dm-image]:https://img.shields.io/david/moxystudio/node-is-regular-file.svg
 [david-dm-dev-url]:https://david-dm.org/moxystudio/node-is-regular-file?type=dev
