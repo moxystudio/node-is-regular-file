@@ -41,10 +41,11 @@ const isRegularFileSync = require('is-regular-file').sync;
 console.log('Is regular file:', isRegularFileSync('path/to/file'));
 ```
 
+
 ## Tests
 
 `$ npm test`   
-`$ npm test-cov` to get coverage report
+`$ npm test -- --watch` during development
 
 
 ## License
