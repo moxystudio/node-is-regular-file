@@ -3,10 +3,10 @@
 [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][codecov-image]][codecov-url] [![Dependency status][david-dm-image]][david-dm-url] [![Dev Dependency status][david-dm-dev-image]][david-dm-dev-url]
 
 [npm-url]:https://npmjs.org/package/is-regular-file
-[downloads-image]:http://img.shields.io/npm/dm/is-regular-file.svg
-[npm-image]:http://img.shields.io/npm/v/is-regular-file.svg
+[downloads-image]:https://img.shields.io/npm/dm/is-regular-file.svg
+[npm-image]:https://img.shields.io/npm/v/is-regular-file.svg
 [travis-url]:https://travis-ci.org/moxystudio/node-is-regular-file
-[travis-image]:http://img.shields.io/travis/moxystudio/node-is-regular-file/master.svg
+[travis-image]:https://img.shields.io/travis/moxystudio/node-is-regular-file/master.svg
 [codecov-url]:https://codecov.io/gh/moxystudio/node-is-regular-file
 [codecov-image]:https://img.shields.io/codecov/c/github/moxystudio/node-is-regular-file/master.svg
 [david-dm-url]:https://david-dm.org/moxystudio/node-is-regular-file
@@ -48,4 +48,4 @@ console.log('Is regular file:', isRegularFileSync('path/to/file'));
 
 ## License
 
-Released under the [MIT License](http://www.opensource.org/licenses/mit-license.php).
+Released under the [MIT License](https://www.opensource.org/licenses/mit-license.php).
